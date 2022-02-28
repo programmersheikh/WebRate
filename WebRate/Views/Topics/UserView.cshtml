@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebRate.Models.Topic>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Topics</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tittle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tittle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+
+
+            @Html.ActionLink("View", "Details", new { id = item.TopicID })
+
+
+        </td>
+    </tr>
+}
+
+</table>

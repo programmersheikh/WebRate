@@ -1,0 +1,50 @@
+﻿@model WebRate.Models.Comment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Comment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommentDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CommntID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
