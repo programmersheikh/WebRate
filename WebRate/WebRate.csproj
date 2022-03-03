@@ -201,6 +201,8 @@
     <Compile Include="Models\Website.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\TopicViewModel.cs" />
+    <Compile Include="ViewModels\WebViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -286,6 +288,8 @@
     <Content Include="Views\TopicComments\Details.cshtml" />
     <Content Include="Views\TopicComments\Edit.cshtml" />
     <Content Include="Views\TopicComments\Index.cshtml" />
+    <Content Include="Views\WebComments\Index - Copy.cshtml" />
+    <Content Include="Views\TopicComments\Index - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

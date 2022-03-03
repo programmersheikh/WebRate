@@ -1,0 +1,51 @@
+﻿
+@model List<ViewModels.WebViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Web Comments</h2>
+
+
+@if (Model.Any(e => e.UserID != ViewBag.UID))
+{
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Website.Tittle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DetailComment)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Website.Tittle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DetailComment)
+            </td>
+            <td>
+
+
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.WebComntId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.WebComntId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.WebComntId })*@
+
+
+
+            </td>
+        </tr>
+    }
+
+</table>

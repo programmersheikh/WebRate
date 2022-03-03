@@ -8,17 +8,22 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebRate.Models;
+using WebRate.ViewModels;
 
 namespace WebRate.Controllers
 {
+
+    [Authorize]
+
     public class WebCommentsController : Controller
     {
         private string UserID;
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db;
 
         public WebCommentsController()
         {
-            UserID = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            UserID = System.Web.HttpContext.Current.User.Identity.GetUserName();
+                db  = new ApplicationDbContext();
         }
 
        
@@ -26,9 +31,30 @@ namespace WebRate.Controllers
         // GET: WebComments
         public ActionResult Index()
         {
-            var webComments = db.WebComments.Include(w => w.Website);
-            ViewBag.UID = UserID;
-            return View(webComments.ToList());
+            
+
+
+            var bookGrouped = db.WebComments.
+              Include(e => e.Website)
+
+          .GroupBy(x => x.Website.Tittle)
+          .Select(x => new WebViewModel
+
+          {
+
+            
+
+              TopicName = x.Key,
+
+
+              Comments = x.ToList()
+          }).ToList();
+
+
+            return View(bookGrouped);
+
+
+
         }
 
         // GET: WebComments/Details/5

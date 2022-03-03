@@ -8,9 +8,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebRate.Models;
+using WebRate.ViewModels;
 
 namespace WebRate.Controllers
 {
+    [Authorize]
     public class TopicCommentsController : Controller
     {
         private string UserID;
@@ -18,7 +20,7 @@ namespace WebRate.Controllers
 
         public TopicCommentsController()
         {
-            UserID = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            UserID = System.Web.HttpContext.Current.User.Identity.GetUserName();
         }
 
 
@@ -27,8 +29,32 @@ namespace WebRate.Controllers
         // GET: TopicComments
         public ActionResult Index()
         {
-            var topicComments = db.TopicComments.Include(t => t.Topic);
-            return View(topicComments.ToList());
+            //var topicComments = db.TopicComments.Include(t => t.Topic);
+            //return View(topicComments.ToList());
+
+
+
+            var bookGrouped = db.TopicComments.
+              Include(e => e.Topic)
+
+          .GroupBy(x => x.Topic.Tittle)
+          .Select(x => new TopicViewModel
+
+          {
+
+
+
+              TopicName = x.Key,
+
+
+              Comments = x.ToList()
+          }).ToList();
+
+
+            return View(bookGrouped);
+
+
+
         }
 
         // GET: TopicComments/Details/5
