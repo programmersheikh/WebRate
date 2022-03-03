@@ -22,3 +22,46 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+/*overide bootstrap*/
+
+
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    /*   color: wheat;
+    text-decoration: none;
+    background-color: #6c6461;*/
+    color: #ffffff;
+    background-color: #002561;
+    transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+    border-left: 4px solid #00C6D7;
+}
+
+
+ul.navbar-nav li:hover > ul.dropdown-menu {
+    display: block;
+}
+
+
+.navbar-inverse {
+    background-color: #002561;
+    border-color: #080808;
+}
+
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #fff;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+            color: #e8e9c8;
+            background-color: transparent;
+        }
+
+
+
+
+    .navbar-inverse .navbar-brand {
+        color: #fff;
+    }

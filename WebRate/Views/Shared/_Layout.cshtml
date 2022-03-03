@@ -17,10 +17,40 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("WebRate", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("WEBLOG", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+
+                    @if (User.IsInRole("Admin")) {  
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Admin</span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Add Website", "Index", "Websites")</li>
+                            <li>@Html.ActionLink("Add Topic", "Index", "Topics")</li>
+
+
+                            <li class="divider"> </li>
+
+                            <li>@Html.ActionLink("Website Reviews", "Index", "WebComments")</li>
+                            <li>@Html.ActionLink("Topic Reviews", "Index", "TopicComments")</li>
+
+
+
+
+
+                            <li class="divider"> </li>
+
+                            <li>@Html.ActionLink("Rate Website", "Create", "WebComments")</li>
+                            <li>@Html.ActionLink("Rate Topic", "Create", "TopicComments")</li>
+
+
+
+                        </ul>
+                    </li>
+
+                    }
+
 
 
                     <li>@Html.ActionLink("View Website", "Index", "WebComments")</li>
